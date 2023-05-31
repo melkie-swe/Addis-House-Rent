@@ -7,7 +7,7 @@
         <div class="col-sm-6">
             <div class="card">
                 <div class="card-body">
-                    <h2 class="card-title"style="color: rgb(27, 154, 222)">About Our Services</h2>
+                    <h1 class="card-title"style="color: rgb(27, 154, 222)">About Our Services</h1>
                     <p class="card-text">If you're looking for hundreds more restructuring questions - or want a more fulsome
                         understanding of what restructuring really is in practice - be sure to check out the Restructuring
                         Interviews course.
