@@ -5,11 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Area;
 use App\Models\Booking;
 use App\Models\House;
+use App\Models\RequestResponse;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use DB;
+use Psy\Command\WhereamiCommand;
 
 class HomeController extends Controller
 {
@@ -52,7 +54,7 @@ class HomeController extends Controller
     public function details($id){
         $house = House::findOrFail($id);
         $property_type = DB::table('property_type')->where('id',$house->property_type_id)->first();
-        
+
         return view('houseDetails', compact('house','property_type'));
     }
 
@@ -64,7 +66,7 @@ class HomeController extends Controller
     public function areaWiseShow($id){
         $area = Area::findOrFail($id);
         $houses = House::where('area_id', $id)->get();
-        
+
         return view('areaWiseShow', compact('houses', 'area'));
     }
 
@@ -151,6 +153,67 @@ class HomeController extends Controller
 
      public function aboutus(){
     return view('footer.aboutus');
+    }
+     public function sendRequest($id)
+    {
+     $data = User::find($id);
+       return view('renter.booking.sendRequest', compact('data'));
+    }
+
+
+      public function send_request(Request $request)
+    {
+        $appoint = new RequestResponse();
+        $appoint->landlord_id = $request->id;
+        $appoint->landlord_contact = $request->contact;
+        $appoint->landlord_email = $request->email;
+        $appoint->mentenance_type = $request->mentenance_type;
+        $appoint->message = $request->message;
+
+        if (Auth::id()) {
+            $appoint->renter_id = Auth::user()->id;
+
+            $appoint->renter_name = Auth::user()->name;
+        }
+        $appoint->status = "submited";
+        $appoint->save();
+        return redirect()->back()->with('message', 'Succsessfully sent please visit the page 10 minute later ?');
+    }
+    public function see_requests(){
+        $requests = RequestResponse::where('landlord_id', Auth::id())
+                                    ->where('type','Request')
+                                       ->get();
+       return view('landlord.booking.seeRequest', compact('requests'));
+    }
+  public function send_response($id)
+    {
+     $data = RequestResponse::find($id);
+       return view('landlord.booking.send_response', compact('data'));
+    }
+     public function post_response(Request $request)
+    {
+     $appoint = new RequestResponse();
+        if (Auth::id()) {
+            $appoint->landlord_id = Auth::user()->id;
+            $appoint->landlord_contact = Auth::user()->contact;
+        }
+        $appoint->landlord_email = $request->email;
+        $appoint->message = $request->message;
+
+        $appoint->mentenance_type = $request->mentenance_type;
+        $appoint->renter_id =$request->renter_id;
+        $appoint->renter_name = $request->renter_name;
+        $appoint->type = "Response";
+        $appoint->status = "Accepted";
+        $appoint->save();
+        return redirect()->back()->with('message', 'Succsessfully Send ?');
+      }
+
+ public function see_responce(){
+        $requests = RequestResponse::where('renter_id', Auth::id())
+                                    ->where('type','Response')
+                                       ->get();
+       return view('renter.booking.seeResponse', compact('requests'));
     }
 
 }

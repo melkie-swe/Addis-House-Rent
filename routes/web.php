@@ -14,17 +14,24 @@ use App\Http\Controllers\DashboardController;
  */
 
 Auth::routes(['verify' => true]);
-Route::get('/', 'HomeController@index')->name('welcome');
+ Route::get('/sendRequest/{id}', 'HomeController@sendRequest')->name('sendRequest');
+ Route::get('/see_requests', 'HomeController@see_requests')->name('see_requests');
 
+ Route::get('/see_responce', 'HomeController@see_responce')->name('see_responce');
+
+ Route::post('/send_request', 'HomeController@send_request')->name('send_request');
+ Route::get('/send_response/{id}', 'HomeController@send_response')->name('send_response');
+
+ Route::post('/post_response', 'HomeController@post_response')->name('post_response');
+
+
+Route::get('/', 'HomeController@index')->name('welcome');
 Route::get('/descending-order-houses-price', 'HomeController@highToLow')->name('highToLow');
 Route::get('/ascending-order-houses-price', 'HomeController@lowToHigh')->name('lowToHigh');
-
 Route::get('/search-result', 'HomeController@search')->name('search');
 Route::get('/search-result-by-range', 'HomeController@searchByRange')->name('searchByRange');
-
 Route::get('/houses/details/{id}', 'HomeController@details')->name('house.details');
 Route::get('/all-available/houses', 'HomeController@allHouses')->name('house.all');
-
 Route::get('/allhouses', 'HomeController@allHouses')->name('allhouses');
 Route::get('/available-houses/area/{id}', 'HomeController@areaWiseShow')->name('available.area.house');
 
@@ -33,7 +40,7 @@ Route::post('/house-booking/id/{id}', 'HomeController@booking')->name('booking')
 Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
-  Route::get('/aboutus', 'HomeController@aboutus')->name('aboutus');
+Route::get('/aboutus', 'HomeController@aboutus')->name('aboutus');
 Route::get('auth/google', 'Auth\GoogleController@redirectToGoogle');
 
 Route::get('auth/google/callback', 'Auth\GoogleController@handleGoogleCallback');
@@ -88,9 +95,10 @@ Route::group(['as' => 'renter.', 'prefix' => 'renter', 'namespace' => 'renter', 
         Route::get('dashboard', 'DashboardController@index')->name('dashboard');
 
         Route::get('areas', 'DashboardController@areas')->name('areas');
-        
+
         Route::get('', 'DashboardController@areas')->name('areas');
 
+        Route::get('booking/sendRequest', 'DashboardController@sendRequest')->name('sendRequest');
 
         Route::get('houses', 'DashboardController@allHouses')->name('allHouses');
         Route::get('house/details/{id}', 'DashboardController@housesDetails')->name('houses.details');

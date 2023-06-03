@@ -20,11 +20,11 @@
                              document.getElementById('logout-form').submit();">
                     {{ __('Logout') }}
                 </a>
-                <a class="dropdown-item" href="{{ route('admin.profile.show') }}"
+                {{-- <a class="dropdown-item" href="{{ route('admin.profile.show') }}"
                     onclick="event.preventDefault();
                              document.getElementById('profile').submit();">
                     {{ __('profile') }}
-                </a>
+                </a> --}}
 
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     <form id="profile" action="{{ route('admin.profile.show') }}" method="POST"

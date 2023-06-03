@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
         @section('title')
-        {{-- | Welcome to Addis House Rental --}}
-        WELCOME TO ADDIS HOUSE RENTAL
+            {{-- | Welcome to Addis House Rental --}}
+            WELCOME TO ADDIS HOUSE RENTAL SYSTEM
         @show
     </title>
     <!--global css starts-->
@@ -30,23 +30,23 @@
                     <div class="col-lg-4 col-8 col-md-4 mt-2">
                         <ul class="list-inline">
                             <li>
-                                <a href="#"> <i class="livicon" data-name="facebook" data-size="18" data-loop="true"
-                                        data-c="#fff" data-hc="#757b87"></i>
+                                <a href="#"> <i class="livicon" data-name="facebook" data-size="18"
+                                        data-loop="true" data-c="#fff" data-hc="#757b87"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="#"> <i class="livicon" data-name="twitter" data-size="18" data-loop="true"
-                                        data-c="#fff" data-hc="#757b87"></i>
+                                <a href="#"> <i class="livicon" data-name="twitter" data-size="18"
+                                        data-loop="true" data-c="#fff" data-hc="#757b87"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="#"> <i class="livicon" data-name="google-plus" data-size="18" data-loop="true"
-                                        data-c="#fff" data-hc="#757b87"></i>
+                                <a href="#"> <i class="livicon" data-name="google-plus" data-size="18"
+                                        data-loop="true" data-c="#fff" data-hc="#757b87"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="#"> <i class="livicon" data-name="linkedin" data-size="18" data-loop="true"
-                                        data-c="#fff" data-hc="#757b87"></i>
+                                <a href="#"> <i class="livicon" data-name="linkedin" data-size="18"
+                                        data-loop="true" data-c="#fff" data-hc="#757b87"></i>
                                 </a>
                             </li>
                             <li>
@@ -152,9 +152,10 @@
                                 </li>
                             </ul>
                         </li> --}}
-                        @if(Sentinel::check())
-                        <li
-                            class=" nav-item dropdown {!! (Request::is('user_emails/inbox') || Request::is('user_emails/compose') || Request::is('user_emails/sent') ? 'active' : '') !!}">
+                    @if (Sentinel::check())
+                        <li class=" nav-item dropdown {!! Request::is('user_emails/inbox') || Request::is('user_emails/compose') || Request::is('user_emails/sent')
+                            ? 'active'
+                            : '' !!}">
                             <a href="#" aria-expanded="false" class="nav-link"> Emails</a>
                             <ul class="dropdown-menu" role="menu">
                                 <li>
@@ -168,38 +169,36 @@
                                 </li>
                             </ul>
                         </li>
-                        @endif
-                        {{-- <li class="nav-item {!! (Request::is(
+                    @endif
+                    {{-- <li class="nav-item {!! (Request::is(
                     'news*') ? 'active' : '') !!}"><a href="{{ URL::to('news') }}" class="nav-link">News</a>
                         </li> --}}
-                        <li class="nav-item {!! (Request::is(
-                    'blog') || Request::is('blogitem/*') ? 'active' : '') !!}"><a href="{{ URL::to('blog') }}"
-                                class="nav-link">
-                                Vacancies</a>
-                        </li>
-                        {{-- <li class="nav-item {!! (Request::is(
+                    <li class="nav-item {!! Request::is('blog') || Request::is('blogitem/*') ? 'active' : '' !!}"><a href="{{ URL::to('blog') }}" class="nav-link">
+                            Vacancies</a>
+                    </li>
+                    {{-- <li class="nav-item {!! (Request::is(
                     'contact') ? 'active' : '') !!}"><a href="{{ URL::to('contact') }}" class="nav-link">Contact</a>
                         </li> --}}
 
-                        {{--based on anyone login or not display menu items--}}
-                        @if(Sentinel::guest())
+                    {{-- based on anyone login or not display menu items --}}
+                    @if (Sentinel::guest())
                         <li class="nav-item"><a href="{{ URL::to('login') }}" class="nav-link">Login</a>
                         </li>
                         {{-- <li class="nav-item"><a href="{{ URL::to('register') }}" class="nav-link">Register</a>
                         </li> --}}
-                        @else
-                        <li class="nav-item {{ (Request::is('my-account') ? 'active' : '') }}"><a
+                    @else
+                        <li class="nav-item {{ Request::is('my-account') ? 'active' : '' }}"><a
                                 href="{{ URL::to('my-account') }}" class="nav-link">My
                                 Account</a>
                         </li>
                         <li class="nav-item"><a href="{{ URL::to('logout') }}" class="nav-link">Logout</a>
                         </li>
-                        @endif
+                    @endif
                     </ul>
                 </div>
-            </nav>
-            <!-- Nav bar End -->
-        </div>
+                </nav>
+                <!-- Nav bar End -->
+            </div>
     </header>
 
     <!-- //Header End -->
@@ -226,13 +225,13 @@
     @yield('footer_scripts')
     <!-- end page level js -->
     <script>
-        $(".navbar-toggler-icon").click(function () {
-        $(this).closest('.navbar').find('.collapse').toggleClass('collapse1')
-    })
+        $(".navbar-toggler-icon").click(function() {
+            $(this).closest('.navbar').find('.collapse').toggleClass('collapse1')
+        })
 
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip().css('font-size', '14px');
-    })
+        $(function() {
+            $('[data-toggle="tooltip"]').tooltip().css('font-size', '14px');
+        })
     </script>
 </body>
 

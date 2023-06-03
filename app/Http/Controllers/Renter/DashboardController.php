@@ -98,4 +98,5 @@ class DashboardController extends Controller
         session()->flash('success', 'Booking Request Removed Successfully');
         return redirect()->back();
     }
+   
 }
