@@ -5,7 +5,7 @@
 @section('content')
     <div id="search">
         <div class="container-fluid">
-        <div class="row justify-content-center py-4">
+            <div class="row justify-content-center py-4">
                 <h1 class="text-center"><strong>WELCOME TO ADDIS HOUSE RENT</strong></h1>
             </div>
             <div class="row justify-content-center py-4">
@@ -35,8 +35,7 @@
                                     <option value="3">3</option>
                                     <option value="4">4</option>
                                     <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
+
                                 </select>
                             </div>
                             <div class="form-group col-md-2">
@@ -68,7 +67,7 @@
         <div class="container">
             <div class="row justify-content-center py-5">
                 {{-- <h1><strong>Available Houses</strong></h1> --}}
-                  <h3><strong>Verified Listings</strong></h3>
+                <h3><strong>Verified Listings</strong></h3>
                 <hr>
             </div>
             <div class="row">
@@ -166,34 +165,34 @@
         </div>
     </div>
     <!-- <div class="section-4 bg-dark">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-7">
-                    <img src="{{ asset('frontend/img/logoo.png') }}" class="section-4-img img-fluid" width="400px;"
-                        height="500px;">
-                </div>
-                <div class="col-md-5">
-                    <h1 class="text-white">Why Choose Us?</h1>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <img src="{{ asset('frontend/img/logoo.png') }}" class="section-4-img img-fluid" width="400px;"
+                                height="500px;">
+                        </div>
+                        <div class="col-md-5">
+                            <h1 class="text-white">Why Choose Us?</h1>
 
-                    <p class="para-1"> Addis House Rent is ....................<a href="#"
-                            style="text-decoration: none"><br> Join Us</a>
+                            <p class="para-1"> Addis House Rent is ....................<a href="#"
+                                    style="text-decoration: none"><br> Join Us</a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </div> -->
+            </div> -->
     <!-- <section id="our-story">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h1 class="story">Our Story</h1>
-                    <p class="pera">Addis House Rent is.............</p>
-                    <p class="pera">Addis House Rent is.............</p>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h1 class="story">Our Story</h1>
+                            <p class="pera">Addis House Rent is.............</p>
+                            <p class="pera">Addis House Rent is.............</p>
+                        </div>
+                        <div class="col-md-6">
+                            {{-- <img src="{{ asset('frontend/img/about-us.png') }}" class="img-fluid"> --}}
+                            <img src="{{ asset('frontend/img/logoo.png') }}" class="img-fluid">
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    {{-- <img src="{{ asset('frontend/img/about-us.png') }}" class="img-fluid"> --}}
-                    <img src="{{ asset('frontend/img/logoo.png') }}" class="img-fluid">
-                </div>
-            </div>
-        </div>
-    </section> -->
+            </section> -->
 @endsection

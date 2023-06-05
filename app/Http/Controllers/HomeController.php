@@ -32,40 +32,36 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $houses = House::where('status', 1)->latest()->paginate(6);
+        $houses = House::where('status', 1)->latest()->where('isaproved', 'aproved')->paginate(6);
         $areas = Area::all();
         return view('welcome', compact('houses', 'areas'));
     }
-
     public function highToLow()
     {
-        $houses = House::where('status', 1)->orderBy('rent', 'DESC')->paginate(6);
+        $houses = House::where('status', 1)->where('isaproved', 'aproved')->orderBy('rent', 'DESC')->paginate(6);
         $areas = Area::all();
         return view('welcome', compact('houses', 'areas'));
     }
-
     public function lowToHigh()
     {
-        $houses = House::where('status', 1)->orderBy('rent', 'ASC')->paginate(6);
+        $houses = House::where('status', 1)->where('isaproved', 'aproved')->orderBy('rent', 'ASC')->paginate(6);
         $areas = Area::all();
         return view('welcome', compact('houses', 'areas'));
     }
-
     public function details($id){
         $house = House::findOrFail($id);
         $property_type = DB::table('property_type')->where('id',$house->property_type_id)->first();
 
         return view('houseDetails', compact('house','property_type'));
     }
-
     public function allHouses(){
-        $houses = House::latest()->where('status', 1)->paginate(12);
+        $houses = House::latest()->where('status', 1)->where('isaproved', 'aproved')->paginate(12);
         return view('allHouses', compact('houses'));
     }
 
     public function areaWiseShow($id){
         $area = Area::findOrFail($id);
-        $houses = House::where('area_id', $id)->get();
+        $houses = House::where('area_id', $id)->where('isaproved', 'aproved')->get();
 
         return view('areaWiseShow', compact('houses', 'area'));
     }
@@ -214,6 +210,32 @@ class HomeController extends Controller
                                     ->where('type','Response')
                                        ->get();
        return view('renter.booking.seeResponse', compact('requests'));
+    }
+public function back_renter(){
+        $books = booking::all();
+    return view('renter.booking.history',compact('books'));
+}
+// public function back_renter(){
+//         $areas = Area::all();
+//         $houses = House::all();
+//         $renters = User::all();
+//         $landlords =User::all();
+//     return view('renter.dashboard',compact('areas','houses','renters','landlords'));
+// }
+
+   public function approve_post($id)
+    {
+        $approved = House::find($id);
+        $approved->isaproved = 'aproved';
+        $approved->save();
+        return redirect()->back();
+    }
+      public function disapprove_post($id)
+    {
+        $approved = House::find($id);
+        $approved->isaproved = 'pending';
+        $approved->save();
+        return redirect()->back();
     }
 
 }

@@ -145,18 +145,13 @@
         </div>
     </div>
 </div> --}}
-
-
-
     <div class="container-fluid login-register">
         <div class="row">
             <div class="col-md-3 col-lg-3 col-sm-2 col-xs-2">
-
             </div>
             <div class="col-md-6 col-lg-6  col-sm-8 col-xs-8">
                 <div class="card">
                     <div class="card-header">
-
                         <h3 style="color: white;"> <strong>Register</strong> </h3>
                     </div>
                     <div class="card-body">
@@ -196,9 +191,8 @@
                             </div>
 
                             <div class="input-group mb-3">
-                                <input type="text" class="form-control"
-                                    placeholder="contact (please add +251 before number)" name="contact"
-                                    value="{{ old('contact') }}">
+                                <input type="text" class="form-control" placeholder="contact (please add contact number)"
+                                    name="contact" value="{{ old('contact') }}">
                             </div>
                             <div class="input-group mb-3">
                                 <input type="email" class="form-control" placeholder="email" name="email"

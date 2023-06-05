@@ -23,7 +23,7 @@ class BookingController extends Controller
 
         if(Booking::where('address', $book->address)->where('booking_status', "booked")->count() > 0){
             session()->flash('danger', 'This house is already booked. Please cancel his/her booking request');
-            return redirect()->back(); 
+            return redirect()->back();
         }
 
 
@@ -34,7 +34,7 @@ class BookingController extends Controller
         $renterContact = $book->renter->contact;
         $renterName = $book->renter->name;
         $houseAddress = $book->address;
-        
+
 //         $url = "http://66.45.237.70/api.php";
 //         $number="$renterContact";
 //         $text="Hello $renterName,
@@ -65,17 +65,17 @@ class BookingController extends Controller
         $book->save();
 
         session()->flash('success', 'Booking Accepted Successfully');
-        return redirect()->back(); 
+        return redirect()->back();
     }
 
     public function bookingRequestReject($id){
 
         $book = Booking::find($id);
-        
+
         $renterContact = $book->renter->contact;
         $renterName = $book->renter->name;
         $houseAddress = $book->address;
-        
+
 //         $url = "http://66.45.237.70/api.php";
 //         $number="$renterContact";
 //         $text="Hello $renterName,
@@ -98,13 +98,10 @@ class BookingController extends Controller
 //         $p = explode("|",$smsresult);
 //         $sendstatus = $p[0];
         
-        
-        
-        
         $book->delete();
 
         session()->flash('success', 'Booking Rejected Successfully');
-        return redirect()->back(); 
+        return redirect()->back();
 
     }
 
@@ -134,6 +131,6 @@ class BookingController extends Controller
         $book->save();
 
         session()->flash('success', 'Renter Leave Successfully');
-        return redirect()->back(); 
+        return redirect()->back();
     }
 }

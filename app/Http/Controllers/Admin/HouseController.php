@@ -52,7 +52,7 @@ class HouseController extends Controller
      */
     public function show(House $house)
     {
-        return view('admin.house.show')->with('house', $house); 
+        return view('admin.house.show')->with('house', $house);
     }
 
     public function manageLandlord(){
@@ -64,7 +64,7 @@ class HouseController extends Controller
         $user = User::findOrFail($id);
 
         if($user->houses->count() > 0){
-            session()->flash('danger', 'You do not remove landlord right now. Because he have some houses. At first 
+            session()->flash('danger', 'You do not remove landlord right now. Because he have some houses. At first
             you have to remove houses, then remove him');
             return redirect()->back();
         }
@@ -143,4 +143,5 @@ class HouseController extends Controller
         $house->delete();
         return redirect(route('admin.house.index'))->with('success', 'House Removed Successfully');
     }
+   
 }

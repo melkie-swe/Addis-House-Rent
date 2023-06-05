@@ -54,9 +54,21 @@
                                         @endforeach
                                     </tbody>
                                 </table>
-                            </div>ssss
+                            </div>
+
 
                         </div> <!-- /.card-body -->
+                           <div class="row mt-2">
+                                <td class="col sm-1">
+                                </td>
+                                <div class="col sm-5">
+                                    <a href="{{ url('back_renter') }}" class="btn btn-danger btn-sm">Back</a>
+
+                                </div>
+                                <div class="col sm-6">
+                                    {{-- <button class="btn btn-info">Submit Request</button> --}}
+                                </div>
+                            </div>
                     @else
                         <h2 class="text-center text-info font-weight-bold m-3">No Responce History Found</h2>
                     @endif

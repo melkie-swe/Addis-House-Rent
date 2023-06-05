@@ -29,7 +29,7 @@ HUHRMS
 @section('content')
 
 <section class="content-header">
-    <h1>Welcome to Dashboard</h1>
+    <h3>Welcome to Dashboard</h3>
     <ol class="breadcrumb">
         <li class=" breadcrumb-item active">
             <a href="#">
@@ -40,7 +40,7 @@ HUHRMS
     </ol>
 </section>
 <section class="content indexpage pr-3 pl-3">
-    
+
     <div class="clearfix"></div>
     <div class="row">
         <div class="col-lg-6 col-xl-3 col-md-6 col-sm-6 margin_10 animated fadeInLeftBig">
@@ -67,7 +67,7 @@ HUHRMS
                 </div>
             </div>
         </div>
-        
+
         <div class="col-lg-6 col-xl-3 col-md-6 col-sm-6 margin_10 animated fadeInRightBig">
             <!-- Trans label pie charts strats here-->
             <div class="widget-1">

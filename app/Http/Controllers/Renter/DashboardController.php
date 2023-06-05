@@ -14,27 +14,22 @@ use Illuminate\Support\Facades\Auth;
 class DashboardController extends Controller
 {
     public function index(){
-        $houses = House::latest()->get();
+        $houses = House::latest()->where('isaproved', 'aproved')->get();
         $areas = Area::latest()->get();
         $renters = User::where('role_id', 3)->get();
         $landlords = User::where('role_id', 2)->get();
         return view('renter.dashboard', compact('renters', 'houses', 'areas', 'landlords'));
     }
-
     public function areas(){
         $areas = Area::latest()->paginate(8);
         $areacount = Area::all()->count();
         return view('renter.area.index', compact('areas', 'areacount'));
     }
-
-
-
     public function allHouses(){
-        $houses = House::latest()->paginate(8);
-        $housecount = House::all()->count();
+        $houses = House::latest()->where('isaproved', 'aproved')->paginate(8);
+        $housecount = House::all()->where('isaproved', 'aproved')->count();
         return view('renter.house.index', compact('houses', 'housecount'));
     }
-
     public function housesDetails($id){
         $house = House::find($id);
         $stayOnceUponATime = Booking::

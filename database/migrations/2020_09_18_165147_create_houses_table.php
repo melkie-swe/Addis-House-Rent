@@ -22,10 +22,15 @@ class CreateHousesTable extends Migration
             $table->integer('number_of_room');
             $table->integer('number_of_toilet');
             $table->integer('number_of_belcony');
+            $table->integer('number_of_parking');
             $table->integer('rent');
             $table->string('featured_image');
             $table->text('images');
-            $table->string('status')->default(1);  //1 means available
+            $table->text('Certificate_of_possession');
+            $table->integer('property_type_id');
+             $table->integer('size');
+             $table->string('status')->default(1);  //1 means available
+             $table->text('isaproved')->default('pending');
             $table->timestamps();
         });
     }

@@ -32,7 +32,7 @@
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
-    
+
     <script id="details-template" type="text/x-handlebars-template">
         @verbatim
         <div class="label label-info">Customer {{ first_name }}'s Purchases</div>
@@ -47,7 +47,6 @@
         </table>
         @endverbatim
     </script>
-
     <script>
       console.log("teka");
       var template = Handlebars.compile($("#details-template").html());
@@ -55,9 +54,7 @@
       var table = $('#customers-table').DataTable({
         processing: true,
         serverSide: true,
-       
         ajax: '{{ route('api.master_details') }}',
-        
         columns: [
           {
             "className":      'details-control',

@@ -23,7 +23,12 @@ Auth::routes(['verify' => true]);
  Route::get('/send_response/{id}', 'HomeController@send_response')->name('send_response');
 
  Route::post('/post_response', 'HomeController@post_response')->name('post_response');
+  Route::get('approve_post/{id}', 'HomeController@approve_post')->name('approve_post');
+ Route::get('disapprove_post/{id}', 'HomeController@disapprove_post')->name('disapprove_post');
 
+
+// back to home page for rent
+ Route::get('/back_renter', 'HomeController@back_renter')->name('back_renter');
 
 Route::get('/', 'HomeController@index')->name('welcome');
 Route::get('/descending-order-houses-price', 'HomeController@highToLow')->name('highToLow');
@@ -53,6 +58,7 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
         Route::resource('area', 'AreaController');
         Route::resource('house', 'HouseController');
         Route::get('manage-landlord', 'HouseController@manageLandlord')->name('manage.landlord');
+      
         Route::delete('manage-landlord/destroy/{id}', 'HouseController@removeLandlord')->name('remove.landlord');
 
         Route::get('manage-renter', 'HouseController@manageRenter')->name('manage.renter');
