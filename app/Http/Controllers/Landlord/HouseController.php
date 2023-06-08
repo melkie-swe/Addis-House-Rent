@@ -64,31 +64,19 @@ class HouseController extends Controller
             'Certificate_of_possession.*' => 'required|mimes:jpeg,png,jpg',
         ]);
 
-
-
         //handle featured image
         $featured_image = $request->file('featured_image');
         if($featured_image)
-        {
-             // Make Unique Name for Image
+        { // Make Unique Name for Image
             $currentDate = Carbon::now()->toDateString();
             $featured_image_name = $currentDate.'-'.uniqid().'.'.$featured_image->getClientOriginalExtension();
-
-
           // Check Dir is exists
-
               if (!Storage::disk('public')->exists('featured_house')) {
                  Storage::disk('public')->makeDirectory('featured_house');
               }
-
-
               // Resize Image  and upload
               $cropImage = Image::make($featured_image)->resize(400,300)->stream();
-              Storage::disk('public')->put('featured_house/'.$featured_image_name,$cropImage);
-
-         }
-
-
+              Storage::disk('public')->put('featured_house/'.$featured_image_name,$cropImage); }
 
         if($request->hasfile('images'))
         {
@@ -103,17 +91,23 @@ class HouseController extends Controller
         {
              foreach($request->file('Certificate_of_possession') as $file)
              {
-                 $name = time() . '-'. uniqid() . '.'.$file->extension();
-                 $file->move(public_path().'/Certificate_of_possession/', $name);
-                 $data2[] = $name;
+                 $name2 = time() . '-'. uniqid() . '.'.$file->extension();
+                 $file->move(public_path().'/Certificate_of_possession/', $name2);
+                 $datamk[] = $name2;
              }
         }
  //handle Certificate_of_possession image
    $house = new House();
-        // $image = $request->Certificate_of_possession;
-        // $imagename = time() . '.' . $image->getClientOriginalExtension();
-        // $request->Certificate_of_possession->move('Certificate_of_possession', $imagename);
-        // $house->Certificate_of_possession = $imagename;
+
+        $image = $request->featured_image;
+        $imagename = time() . '.' . $image->getClientOriginalExtension();
+        $request->featured_image->move('featured_image', $imagename);
+        $house->featured_image = $imagename;
+
+        // $image2 = $request->Certificate_of_possession;
+        // $imagename2 = time() . '.' . $image2->getClientOriginalExtension();
+        // $request->Certificate_of_possession->move('Certificate_of_possession', $imagename2);
+        // $house->Certificate_of_possession = $imagename2;
 
         $house->address = $request->address;
         $house->user_id = Auth::id();
@@ -127,9 +121,9 @@ class HouseController extends Controller
         $house->number_of_parking = $request->number_of_parking;
         $house->rent = $request->rent;
         $house->images = json_encode($data);
-
-        $house->Certificate_of_possession = json_encode($data2);
-        $house->featured_image = $featured_image_name;
+         $house->Certificate_of_possession = json_encode($datamk);
+        // $house->Certificate_of_possession = $Certificate_of_possession;
+        $house->featured_image = $featured_image;
         $house->save();
         return redirect(route('landlord.house.index'))->with('success', 'House Added successfully');
     }
@@ -156,8 +150,6 @@ class HouseController extends Controller
         $areas = Area::all();
         return view('landlord.house.edit', compact('areas', 'house'));
     }
-
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -198,6 +190,7 @@ class HouseController extends Controller
             'rent' => 'required|numeric',
             'featured_image' => 'mimes:jpeg,png,jpg',
             'images.*' => 'mimes:jpeg,png,jpg',
+            // 'Certificate_of_possession.*' => 'required|mimes:jpeg,png,jpg',
         ]);
 
         //handle featured image
@@ -227,8 +220,6 @@ class HouseController extends Controller
              }
              $house->featured_image = $featured_image_name;
          }
-
-
         //handle multiple images update
         if($request->hasfile('images'))
         {

@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>
         @section('title')
-            | HUHRMS
+           ADDIS HOUSE RENT
         @show
     </title>
 
@@ -23,10 +23,10 @@
 
 <body class="skin-josh">
 <header class="header">
-    
+
     <a href="{{ route('admin.dashboard') }}" class="logo">
         <img src="{{ asset('img/hlogo.png') }}" alt="logo">
-        <span style="color: #fff;"> HUHRMS</span>
+        <span style="color: #fff;"> ADDIS HOUSE RENT</span>
     </a>
     <nav class="navbar navbar-static-top" role="navigation">
         <!-- Sidebar toggle button-->

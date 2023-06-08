@@ -14,8 +14,7 @@ class CreateRequestResponsesTable extends Migration
     public function up()
     {
         Schema::create('request_responses', function (Blueprint $table) {
-            $table->id();
-
+            $table->bigIncrements('id');
             $table->string('type')->default("Request");
             $table->string('landlord_id')->nullable();
              $table->string('landlord_contact')->nullable();

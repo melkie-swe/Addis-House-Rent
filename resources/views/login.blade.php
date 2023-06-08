@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login | Welcome to HUHRMS</title>
+    <title>Login | Welcome to Addis House Rent</title>
     <!--global css starts-->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/all.css') }}">
@@ -18,7 +18,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/buttons.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('css/frontend/login.css') }}">
     <!--end of page level css-->
-    
+
 </head>
 
 <body>
@@ -58,10 +58,10 @@
 
                         </div>
                         <input type="submit" class="btn btn-block btn-primary" value="Log In">
-                        
+
                     </form>
                     <br />
-                   
+
                     <div class="bg-transparent animation flipInX">
                         <a href="{{ route('forgot-password') }}">Forgot Password?</a>
                     </div>

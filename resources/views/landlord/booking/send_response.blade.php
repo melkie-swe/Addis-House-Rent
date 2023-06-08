@@ -27,18 +27,18 @@
                 </div>
                 <div class="col-12 col-sm-4 py-2 wow fadeInLeft" data-wow-delay="300ms">
                     <label for="">landlord Email</label>
-                    <input type="email" name="email" class="form-control" placeholder=" ኢማል አስገባ ?"
+                    <input type="email" name="email" class="form-control" placeholder=" email ?"
                         value="{{ $data->landlord_email }}" readonly>
                 </div>
                 <div class="col-12 col-sm-3 py-2 wow fadeInLeft" data-wow-delay="300ms">
-                    <label for="">Menntenance Type</label>
+                    <label for="">Maintenance Type</label>
                     <input type="email" name="mentenance_type" class="form-control" value="{{ $data->mentenance_type }}"
                         readonly>
                 </div>
             </div>
             <div class="row mt-2">
                 <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
-                    <textarea class="form-control" name="message" rows="4" required>አጠቃላይ ያለዎትን መልኢክት ያስቀምጡ ?
+                    <textarea class="form-control" name="message" rows="4" required>write your Response ?
                     </textarea>
                 </div>
 

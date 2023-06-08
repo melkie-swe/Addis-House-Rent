@@ -103,27 +103,24 @@
                                         <label for="type">Property Type </label>
                                         <select name="property_type" class="form-control" id="property_type">
                                             <option value="">select property type</option>
-                                            @foreach ($property_type as $property_typ)
-                                                <option value="{{ $property_typ->id }}"
-                                                    {{ old('property_type') == $property_typ->id ? 'selected' : '' }}>
-                                                    {{ $property_typ->name }}</option>
+                                            @foreach ($property_type as $property_type)
+                                                <option value="{{ $property_type->id }}"
+                                                    {{ old('property_type') == $property_type->id ? 'selected' : '' }}>
+                                                    {{ $property_type->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
-
                                     <div class="form-group">
                                         <label for="images">Certificate of possession</label>
                                         <input type="file" name="Certificate_of_possession[]" class="form-control"
                                             multiple>
                                     </div>
-
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-sm-6">
-
                                     <div class="form-group">
                                         <label for="featured_image">Featured Image</label>
                                         <input type="file" name="featured_image" class="form-control"
@@ -136,19 +133,7 @@
                                         <input type="file" name="images[]" class="form-control" multiple>
                                     </div>
                                 </div>
-
                             </div>
-
-
-
-
-
-
-
-
-
-
-
 
                             <div class="form-group">
                                 <button type="submit" class="btn btn-success">Add</button>

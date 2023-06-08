@@ -23,9 +23,9 @@
                             @endif
                         </div>
                         <div class="row">
-                            <div class="form-group col-md-4">
+                            {{-- <div class="form-group col-md-4">
                                 <input type="text" name="address" placeholder="search an area" class="form-control">
-                            </div>
+                            </div> --}}
                             <div class="form-group col-md-2">
                                 {{-- <input type="text" name="room" placeholder="room" class="form-control"> --}}
                                 <select name="room" class="form-control">
@@ -78,12 +78,19 @@
                             <div class="col-md-6">
                                 <div class="card m-3 house-card">
                                     <div class="card-header">
-                                        <img src="{{ asset('storage/featured_house/' . $house->featured_image) }}"
-                                            width="100%" class="img-fluid" alt="Card image">
+                                        <div class="col-md-12">
+                                            <img src="{{ 'featured_image/' . $house->featured_image }}"
+                                                class="img-fluid m-2" style="height: 100px;width: 100%; ">
+
+                                        </div>
                                     </div>
+                                    <div class="row gallery">
+
+                                    </div>
+
                                     <div class="card-body">
                                         <p>
-                                        <h4><strong><i class="fas fa-map-marker-alt"> {{ $house->area->name }}, Sylhet</i>
+                                        <h4><strong><i class="fas fa-map-marker-alt"> {{ $house->area->name }}</i>
                                             </strong></h4>
                                         </p>
 
@@ -165,34 +172,34 @@
         </div>
     </div>
     <!-- <div class="section-4 bg-dark">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-7">
-                            <img src="{{ asset('frontend/img/logoo.png') }}" class="section-4-img img-fluid" width="400px;"
-                                height="500px;">
-                        </div>
-                        <div class="col-md-5">
-                            <h1 class="text-white">Why Choose Us?</h1>
+                                                        <div class="container">
+                                                            <div class="row">
+                                                                <div class="col-md-7">
+                                                                    <img src="{{ asset('frontend/img/logoo.png') }}" class="section-4-img img-fluid" width="400px;"
+                                                                        height="500px;">
+                                                                </div>
+                                                                <div class="col-md-5">
+                                                                    <h1 class="text-white">Why Choose Us?</h1>
 
-                            <p class="para-1"> Addis House Rent is ....................<a href="#"
-                                    style="text-decoration: none"><br> Join Us</a>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
+                                                                    <p class="para-1"> Addis House Rent is ....................<a href="#"
+                                                                            style="text-decoration: none"><br> Join Us</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div> -->
     <!-- <section id="our-story">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h1 class="story">Our Story</h1>
-                            <p class="pera">Addis House Rent is.............</p>
-                            <p class="pera">Addis House Rent is.............</p>
-                        </div>
-                        <div class="col-md-6">
-                            {{-- <img src="{{ asset('frontend/img/about-us.png') }}" class="img-fluid"> --}}
-                            <img src="{{ asset('frontend/img/logoo.png') }}" class="img-fluid">
-                        </div>
-                    </div>
-                </div>
-            </section> -->
+                                                        <div class="container">
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <h1 class="story">Our Story</h1>
+                                                                    <p class="pera">Addis House Rent is.............</p>
+                                                                    <p class="pera">Addis House Rent is.............</p>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    {{-- <img src="{{ asset('frontend/img/about-us.png') }}" class="img-fluid"> --}}
+                                                                    <img src="{{ asset('frontend/img/logoo.png') }}" class="img-fluid">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </section> -->
 @endsection

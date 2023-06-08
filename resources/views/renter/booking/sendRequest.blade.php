@@ -33,13 +33,13 @@
             </div>
             <div class="row mt-2">
                 <div class="col-9 py-2 wow fadeInUp" data-wow-delay="300ms">
-                    <textarea class="form-control" name="message" rows="4" required>አጠቃላይ ያለዎትን መልኢክት ያስቀምጡ ?
+                    <textarea class="form-control" name="message" rows="4" required>write your request ?
                     </textarea>
                 </div>
 
                 <div class="col-12 col-sm-3 py-2 wow fadeInRight" data-wow-delay="300ms">
                     <select name="mentenance_type" class="custom-select form-control">
-                        <option value="">የጥገና ክፍል ምረጥ ?"</option>
+                        <option value="">select maitenanse type ?"</option>
                         <option value="toilet">toilet </option>
                         <option value="bathroom">bathroom </option>
                         <option value="electric">electric</option>

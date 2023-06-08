@@ -28,7 +28,7 @@ class CreateHousesTable extends Migration
             $table->text('images');
             $table->text('Certificate_of_possession');
             $table->integer('property_type_id');
-             $table->integer('size');
+             $table->string('size');
              $table->string('status')->default(1);  //1 means available
              $table->text('isaproved')->default('pending');
             $table->timestamps();

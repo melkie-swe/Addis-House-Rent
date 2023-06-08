@@ -14,7 +14,7 @@
                 <br>
                 <div style="color: honeydew;line-height: 4px; font-weight: 600" class="text-center mt-3 info">
                     <p>{{ Auth::user()->name }}</p>
-                    <p>{{ Auth::user()->contact }}</p>
+                    {{-- <p>{{ Auth::user()->contact }}</p> --}}
                 </div>
             </div>
         </div>

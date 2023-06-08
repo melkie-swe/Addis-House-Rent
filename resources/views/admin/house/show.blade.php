@@ -25,40 +25,35 @@
                                 <tr>
                                     <th>Address</th>
                                     <td>{{ $house->address }}</td>
-                                </tr>
-                                <tr>
                                     <th>Area</th>
                                     <td>{{ $house->area->name }}</td>
                                 </tr>
+
                                 <tr>
                                     <th>Owner</th>
                                     <td>{{ $house->user->name }}</td>
-                                </tr>
-                                <tr>
                                     <th>Contact</th>
                                     <td>{{ $house->contact }}</td>
                                 </tr>
+
                                 <tr>
                                     <th>Number of rooms</th>
                                     <td>{{ $house->number_of_room }}</td>
-                                </tr>
-
-                                <tr>
                                     <th>Number of toilet</th>
                                     <td>{{ $house->number_of_toilet }}</td>
                                 </tr>
 
+
                                 <tr>
                                     <th>Number of belcony</th>
                                     <td>{{ $house->number_of_belcony }}</td>
-                                </tr>
-
-                                <tr>
                                     <th>Rent</th>
                                     <td>{{ $house->rent }}</td>
                                 </tr>
 
                                 <tr>
+                                  <th>National ID</th>
+                                    <td>{{ $house->user->nid }}</td>
                                     <th>Status</th>
                                     <td>
                                         @if ($house->status == 1)
@@ -75,7 +70,7 @@
                                 <div class="col-md-3">
                                     <a href="{{ asset('images/' . $picture) }}">
                                         <img src="{{ asset('images/' . $picture) }}" class="img-fluid m-2"
-                                            style="height: 150px;width: 100%; ">
+                                            style="height: 150px;width: 100%; ">Images of House
                                     </a>
                                 </div>
                             @endforeach
@@ -85,12 +80,17 @@
                                 <div class="col-md-3">
                                     <a href="{{ asset('Certificate_of_possession/' . $pic) }}">
                                         <img src="{{ asset('Certificate_of_possession/' . $pic) }}" class="img-fluid m-2"
-                                            style="height: 150px;width: 100%; ">
+                                            style="height: 150px;width: 100%; ">Certificate of possession
                                     </a>
                                 </div>
                             @endforeach
                         </div>
-
+                        {{-- <div class="col-md-3">
+                            <a href="{{ asset('Certificate_of_possession/' . $house->Certificate_of_possession) }}">
+                                <img src="{{ asset('Certificate_of_possession/' . $house->Certificate_of_possession) }}"
+                                    class="img-fluid m-2" style="height: 150px;width: 100%; ">Certificate of possession
+                            </a>
+                        </div> --}}
                     </div>
                     <!-- /.card-body -->
                 </div>

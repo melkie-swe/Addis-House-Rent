@@ -13,9 +13,10 @@ class DashboardController extends Controller
    public function index(){
       $landlords = User::where('role_id', 2)->get();
       $renters = User::where('role_id', 3)->get();
-      $houses = House::latest()->get();
+      $houses = House::latest()->where('isaproved','aproved')->get();
       $areas = Area::latest()->get();
-   	return view('admin.dashboard', compact('landlords', 'renters', 'houses', 'areas'));
+      $newpost = House::latest()->where('isaproved','pending')->get();
+   	return view('admin.dashboard', compact('landlords', 'renters', 'houses', 'areas','newpost'));
    }
 public function aboutus(){
     return view('footer.aboutus');
